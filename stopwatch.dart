@@ -21,22 +21,21 @@ void main() async {
       stopwatch2.start();
       print('SW1,2が開始しました。');
       print('１を押すと、ストップウォッチ１のラップが記録され、２を押すと同様になります。');
-    } 
-    else if (input == '1') {
+    } else if (input == '1') {
       lapTimes1.add(stopwatch1.elapsed);
       print('SW1のラップを記録しました');
-    } 
-    else if (input == '2') {
+    } else if (input == '2') {
       lapTimes2.add(stopwatch2.elapsed);
       print('SWのラップを記録しました。');
-    } 
-    else if (input == 'f1') {
+    } else if (input == 'f') {
       stopwatch1.stop();
       stopwatch2.stop();
       print('SWを止めました。');
       print('SW1のラップ: ${lapTimes1.map((d) => d.inSeconds)}');
       print('SW2のラップ: ${lapTimes2.map((d) => d.inSeconds)}');
       break;
+    } else{
+      print("s,1,2,fを打ち込んでください");
     }
   }
 }
