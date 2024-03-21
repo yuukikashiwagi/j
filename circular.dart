@@ -1,3 +1,13 @@
+import 'dart:io';
+
+void main() {
+  print('文字を入力してください。');
+  String? input = stdin.readLineSync();
+  if (input != null) {
+    print("問１の答えは、${isPalindrome(input)}です。");
+  }
+}
+
 bool isPalindrome(String str) {
   String reversedStr = str.split('').reversed.join('');
   return str == reversedStr;
