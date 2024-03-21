@@ -1,0 +1,8 @@
+name: dart_text # 作成したパッケージ名
+
+environment:
+    sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  googleapis: ^7.0.0
+  translator: ^0.1.5
