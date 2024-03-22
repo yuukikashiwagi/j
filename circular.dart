@@ -1,3 +1,5 @@
+// 回文かどうか判断する関数を書いてみよう
+
 import 'dart:io';
 
 void main() {

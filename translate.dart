@@ -1,3 +1,5 @@
+// 打ち込んだ日本語を外部ライブラリを用いて、英語に翻訳してみよう
+
 import 'dart:io';
 import 'dart:async';
 import 'package:translator/translator.dart';
