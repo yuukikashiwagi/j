@@ -16,6 +16,12 @@
 // 'f'：2つのストップウォッチを停止し、それぞれのラップタイムのリストを表示してください。
 // このプログラムをDart言語で実装してください。
 
+// 問題目的
+// 外部ライブラリAPIみたいなめっちゃ外部みたいなもの以外にもクラスベースビューみたいなもう少し身近なものもあるよという紹介
+
+// どういうライブラリが使えるか探してもらう
+// 問１　ストップウォッチをライブラリを用いて、実装してみよう
+// 問２　二つのストップウォッチを同時に使えるようにしてみよう
 import 'dart:async';
 import 'dart:io';
 
@@ -24,6 +30,7 @@ void main() async {
   final stopwatch2 = Stopwatch();
   final lapTimes1 = <Duration>[];
   final lapTimes2 = <Duration>[];
+  bool is_started = false;
 
   print("sを押して、ストップウォッチ１と２を開始してください。");
 
@@ -35,21 +42,26 @@ void main() async {
       stopwatch2.start();
       print('SW1,2が開始しました。');
       print('１を押すと、ストップウォッチ１のラップが記録され、２を押すと同様になります。');
-    } else if (input == '1') {
+      is_started = true;
+    } else if (input == '1' && is_started == true) {
       lapTimes1.add(stopwatch1.elapsed);
       print('SW1のラップを記録しました');
-    } else if (input == '2') {
+    } else if (input != 's' && is_started == false) {
+      print('sを押して、ストップウォッチを開始してください。');
+    } else if (input == '2' && is_started == true) {
       lapTimes2.add(stopwatch2.elapsed);
       print('SWのラップを記録しました。');
-    } else if (input == 'f') {
+    } else if (input == '2' && is_started == false) {
+      print('sを押して、ストップウォッチを開始してください。');
+    } else if (input == 'f' && is_started == true) {
       stopwatch1.stop();
       stopwatch2.stop();
       print('SWを止めました。');
       print('SW1のラップ: ${lapTimes1.map((d) => d.inSeconds)}');
       print('SW2のラップ: ${lapTimes2.map((d) => d.inSeconds)}');
       break;
-    } else{
-      print("s,1,2,fを打ち込んでください");
+    }  else {
+      print("1,2,fを打ち込んでください");
     }
   }
 }
@@ -66,3 +78,5 @@ void main() async {
 
 // 問題点
 // 外部ライブラリ、非同期処理、データベースも使っていない。
+
+

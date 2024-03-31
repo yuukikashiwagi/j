@@ -1,5 +1,11 @@
 // 打ち込んだ日本語を外部ライブラリを用いて、英語に翻訳してみよう
 
+// 目的
+// APIキーを使う前の前座
+// または、APIキーの方を書いた後、こんな方法もあるよという紹介
+// APIキーを用いた方が演習になるので、後者の方がいいのかなと
+
+
 import 'dart:io';
 import 'dart:async';
 import 'package:translator/translator.dart';
@@ -19,13 +25,9 @@ void main() {
         final translator = GoogleTranslator();
         final translation = await translator.translate(message, to: 'en');
         print('翻訳: ${translation.text}');
-        // var client = await clientViaApplicationDefaultCredentials(
-        //     scopes: ['https://www.googleapis.com/auth/cloud-platform']);
-        // var api = TranslateApi(client);
-        // var response = await api.translations
-        //     .list(['Received your message!'], target: 'ja');  // 翻訳先の言語を設定
-        // print('Bot: ${response.translations!.first.translatedText}');
       });
     }
   });
 }
+
+// APIキーを用いたプログラムを後日書きます。
